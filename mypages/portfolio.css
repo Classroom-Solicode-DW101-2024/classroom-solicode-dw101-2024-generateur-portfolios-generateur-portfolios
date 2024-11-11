@@ -1,0 +1,173 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e0f7ff 0%, #87CEEB 100%);
+    padding: 20px;
+}
+
+/* Main container */
+.portfolio-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 20px;
+}
+
+/* Title styling */
+.title {
+    color: #1e88e5;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Section styling */
+.section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.section h2 {
+    color: #1e88e5;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+/* Information grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.info-item {
+    padding: 0.5rem;
+}
+
+.label {
+    color: #555;
+    font-weight: 500;
+    margin-right: 0.5rem;
+}
+
+.value {
+    color: #333;
+}
+
+/* Projects styling */
+.project-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.project-title {
+    color: #1e88e5;
+    margin-bottom: 0.5rem;
+}
+
+.project-github {
+    margin-bottom: 0.5rem;
+}
+
+.project-github a {
+    color: #1976d2;
+    text-decoration: none;
+}
+
+.project-github a:hover {
+    text-decoration: underline;
+}
+
+.project-skills {
+    margin: 0.5rem 0;
+}
+
+.skill {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    margin: 0.2rem;
+    background-color: #e3f2fd;
+    color: #1e88e5;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.project-date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Button styling */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+#downloadBtn {
+    background-color: #1e88e5;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#downloadBtn:hover {
+    background-color: #1976d2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .portfolio-container {
+        padding: 1.5rem;
+        margin: 10px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .section {
+        padding: 1rem;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.8rem;
+    }
+}
