@@ -69,10 +69,10 @@ if (nextBtn) {
         //     return;
         // }
 
-        // if (!phoneFormat.test(phoneInput.value)) {
-        //     alert('Please enter the phone number in this format: +212XXX-XX-XX-XX');
-        //     return;
-        // }
+        if (!phoneFormat.test(phoneInput.value)) {
+            alert('Please enter the phone number in this format: +212XXX-XX-XX-XX');
+            return;
+        }
     
         newStudent = new Student(nameInput.value, surnameInput.value, emailInput.value, phoneInput.value, groupInput.value);
     
