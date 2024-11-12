@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/* Resetting default margin and padding */
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +6,7 @@
     font-family: Arial, sans-serif;
 }
 
+/* Body and layout */
 body {
     min-height: 100vh;
     display: flex;
@@ -14,33 +15,26 @@ body {
     background: linear-gradient(135deg, #e0f7ff 0%, #87CEEB 100%);
 }
 
-/* Main container styling */
-.studentsProjects {
-    background-color: white;
+main {
+    width: 100%;
+    max-width: 800px;
     padding: 2rem;
+    background-color: white;
     border-radius: 15px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    margin: 20px;
 }
 
-/* Title styling */
-.title {
-    color: #1e88e5;
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-align: center;
+/* Section for the form */
+.projects {
     margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-/* Form elements common styling */
-.inputs {
-    margin-bottom: 1.5rem;
+.container {
+    display: flex;
+    flex-direction: column;
 }
 
+/* Labels and input fields */
 label {
     display: block;
     margin-bottom: 0.5rem;
@@ -49,163 +43,80 @@ label {
     text-transform: capitalize;
 }
 
-/* Input fields styling */
-input[type="text"],
-input[type="date"] {
+/* Text input fields */
+input[type="text"], input[type="date"], input[type="button"] {
     width: 100%;
     padding: 0.8rem;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     font-size: 1rem;
+    margin-bottom: 1.5rem;
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="date"]:focus {
+input[type="text"]:focus, input[type="date"]:focus {
     outline: none;
     border-color: #1e88e5;
     box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
 }
 
-/* Date input specific styling */
-input[type="date"] {
-    color: #555;
-    cursor: pointer;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    cursor: pointer;
-    padding: 0.2rem;
-    margin-right: 0.2rem;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator:hover {
-    opacity: 1;
-}
-
-input[type="date"]:invalid {
-    color: #999;
-}
-
-/* Checkbox group styling */
-.checkbox-group {
-    margin-top: 0.5rem;
-    padding-left: 0.5rem;
-}
-
-.checkbox-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-}
-
-.checkbox-item input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    margin-right: 0.5rem;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    border: 2px solid #1e88e5;
-    border-radius: 4px;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.checkbox-item input[type="checkbox"]:checked {
-    background-color: #1e88e5;
-    border-color: #1e88e5;
-}
-
-.checkbox-item input[type="checkbox"]:checked::after {
-    content: '✓';
-    position: absolute;
-    color: white;
-    font-size: 14px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.checkbox-item input[type="checkbox"]:hover {
-    border-color: #1976d2;
-}
-
-.checkbox-item label {
-    display: inline;
-    margin-bottom: 0;
-    cursor: pointer;
-}
-
-/* Button styling */
-#validate {
-    background-color: #1e88e5;
-    color: white;
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-right: 1rem;
-}
-
-#validate:hover {
-    background-color: #1976d2;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.2);
-}
-
-#Next-btn {
-    display: inline-block;
+input[type="button"] {
     background-color: #ffd700;
     color: #333;
+    font-weight: bold;
     padding: 0.8rem 2rem;
     border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
+    border: none;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-#Next-btn:hover {
+input[type="button"]:hover {
     background-color: #ffed4a;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
 }
 
-/* Button container spacing */
-form + button + a {
-    margin-top: 1.5rem;
-    display: inline-block;
+/* Grouping checkboxes */
+input[type="checkbox"] {
+    margin-right: 0.5rem;
 }
 
-/* Responsive design */
+label[for="html"], label[for="css"], label[for="js"] {
+    display: inline-block;
+    margin-right: 1rem;
+    color: #555;
+}
+
+/* Button group */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Projects created section */
+.projects-created {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e0e0e0;
+}
+
+/* Responsive adjustments */
 @media (max-width: 480px) {
-    .studentsProjects {
+    main {
         padding: 1.5rem;
-        margin: 10px;
     }
 
-    .title {
-        font-size: 1.5rem;
-    }
-
-    input[type="text"],
-    input[type="date"] {
+    input[type="text"], input[type="date"], input[type="button"] {
         padding: 0.6rem;
-        font-size: 0.9rem;
     }
 
-    #validate,
-    #Next-btn {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
+    .button-group {
+        flex-direction: column;
     }
 
-    .checkbox-item input[type="checkbox"] {
-        width: 16px;
-        height: 16px;
+    input[type="button"] {
+        margin-bottom: 1rem;
+        width: 100%;
     }
 }

@@ -1,173 +1,370 @@
-/* Base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     min-height: 100vh;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background: linear-gradient(135deg, #e0f7ff 0%, #87CEEB 100%);
-    padding: 20px;
+    gap: 2rem;
 }
 
-/* Main container */
-.portfolio-container {
+.StudentInfo,
+.StudentProjects,
+.project-card,
+.student-card {
     background-color: white;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 800px;
-    margin: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
 }
 
-/* Title styling */
-.title {
-    color: #1e88e5;
-    font-size: 1.8rem;
-    font-weight: bold;
+.Student,
+.student-card h2 {
     text-align: center;
+    font-size: 1.8rem;
+    color: #2c3e50;
     margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-weight: 600;
 }
 
-/* Section styling */
-.section {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+.Student::after,
+.student-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    border-radius: 2px;
 }
 
-.section h2 {
-    color: #1e88e5;
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
+.inputs {
+    margin-bottom: 1.5rem;
 }
 
-/* Information grid */
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-.info-item {
-    padding: 0.5rem;
-}
-
-.label {
-    color: #555;
+.inputs label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #34495e;
     font-weight: 500;
-    margin-right: 0.5rem;
 }
 
-.value {
-    color: #333;
-}
-
-/* Projects styling */
-.project-item {
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid #e0e0e0;
+input:not([type="checkbox"]),
+select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
     border-radius: 8px;
-    transition: transform 0.3s ease;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
-.project-item:hover {
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+input::placeholder {
+    color: #bdc3c7;
+}
+
+select {
+    cursor: pointer;
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: #2980b9;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
 }
 
-.project-title {
-    color: #1e88e5;
-    margin-bottom: 0.5rem;
+button:active {
+    transform: translateY(0);
 }
 
-.project-github {
-    margin-bottom: 0.5rem;
+#Done {
+    background-color: #2ecc71;
 }
 
-.project-github a {
-    color: #1976d2;
-    text-decoration: none;
+#Done:hover {
+    background-color: #27ae60;
 }
 
-.project-github a:hover {
-    text-decoration: underline;
-}
-
-.project-skills {
-    margin: 0.5rem 0;
-}
-
-.skill {
-    display: inline-block;
-    padding: 0.3rem 0.8rem;
-    margin: 0.2rem;
-    background-color: #e3f2fd;
-    color: #1e88e5;
-    border-radius: 15px;
-    font-size: 0.9rem;
-}
-
-.project-date {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-/* Button styling */
-.button-container {
+.projectsList {
+    width: 100%;
+    max-width: 1200px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
     justify-content: center;
     margin-top: 2rem;
 }
 
-#downloadBtn {
-    background-color: #1e88e5;
-    color: white;
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 8px;
+.project-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 280px;
+    text-align: center;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.project-card .github-link {
+    color: #3498db;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.project-card .github-link:hover {
+    text-decoration: underline;
+}
+
+.project-card .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-card .skill-tag {
+    background: #e1f0fa;
+    color: #3498db;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.project-card .date {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.project {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project h3 {
+    color: #2c3e50;
+    font-size: 1.25rem;
+    border-bottom: 2px solid #3498db;
+    margin-bottom: 10px;
+}
+
+.project p {
+    color: #34495e;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.project p:nth-of-type(1) {
     font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    color: #2c3e50;
 }
 
-#downloadBtn:hover {
-    background-color: #1976d2;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.2);
+.project p:nth-of-type(2) {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    font-style: italic;
 }
 
-/* Responsive design */
-@media (max-width: 600px) {
-    .portfolio-container {
-        padding: 1.5rem;
-        margin: 10px;
-    }
+.project a {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
 
-    .title {
-        font-size: 1.5rem;
-    }
+.project a:hover {
+    background-color: #2980b9;
+}
 
-    .section {
-        padding: 1rem;
-    }
+.student-card h2,
+.student-card h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #1a1a1a;
+}
 
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
+.student-card p {
+    font-size: 16px;
+    color: #4b5563;
+    line-height: 1.5;
+}
 
-    .skill {
-        padding: 0.2rem 0.6rem;
-        font-size: 0.8rem;
-    }
+.student-info-label {
+    font-weight: 500;
+    color: #6b7280;
+    display: inline-block;
+    width: 60px;
+}
+
+.projects-section {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+}
+
+#StudentDisplay {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.student {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.student h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+}
+
+.student h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: #3498db;
+    border-radius: 2px;
+}
+
+.student p {
+    font-size: 1rem;
+    color: #34495e;
+    margin: 0.5rem 0;
+}
+
+.student h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.project {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project h4 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.project a {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.project a:hover {
+    background-color: #2980b9;
+}
+
+.project p {
+    color: #34495e;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.project p:nth-of-type(1) {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.project p:nth-of-type(2) {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    font-style: italic;
 }

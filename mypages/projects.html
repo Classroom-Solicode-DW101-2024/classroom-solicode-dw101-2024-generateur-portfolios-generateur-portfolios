@@ -4,52 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="projects.css">
     <link rel="icon" type="image/svg+xml" href="image.png">
     
 </head>
 <body>
-    <div class="studentsProjects">
-        <div class="title">Projects</div>
-
-        <form action="">
-            <div class="inputs">
-                <label for="">Title :</label>
-                <input type="text" id="title" name="title">
-            </div>
-
-            <div class="inputs">
-                <label for="GithubLinks">GithubLinks :</label>
-                <input type="text" id="GithubLinks" name="GithubLinks">
-            </div>
-
-            <div class="inputs">
-                <label for="" id="skills">Skills :</label>
-                <br>
-                <div class="ckeckbox-group">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="html" name="skills" value="skills">
+    <main>
+        <section class="projects">
+            <div class="container">
+                <form method="post" id="projects-forms">
+                    <div>
+                        <label for="project-title" class="project-title">Title: </label>
+                        <input type="text" name="project-title" id="project-title">
+                    </div>
+        
+                    <div>
+                        <label for="github-links" class="github-links">github-links: </label>
+                        <input type="text" name="github-links" id="github-links">
+                    </div>
+        
+                    <label for="skills">SKILLS: </label><br>
+                    <div>
                         <label for="html">HTML</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="css" name="skills" value="skills">
+                        <input type="checkbox" name="html" id="html" value="html">
+    
                         <label for="css">CSS</label>
+                        <input type="checkbox" name="css" id="css" value="css">
+    
+                        <label for="js">JavaScript</label>
+                        <input type="checkbox" name="js" id="js" value="javaScript">
                     </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="javascript" name="skills" value="skills">
-                        <label for="javascript">JAVASCRIPT</label>
+        
+                    <div>
+                        <label for="realisation-date" class="realisation-date">realisation-date: </label>
+                        <input type="date" id="realisation-date">
                     </div>
-                </div>
+        
+                    <div class="button-group">
+                        <input type="button" value="Validate" id="validate">
+                        <input type="button" value="finish" id="finish">
+                    </div>
+                </form>
             </div>
-            <div class="inputs">
-                <label for="projectDate">Date of Realisation :</label>
-                <input type="date" id="projectDate" name="projectDate">
-            </div>
-        </form>
-
-        <button id="validate">Validate</button>
-        <a href = 'page3.html' target = "_self" id="Next-btn" >Done</a>
-    </div>
+        </section>
+    
+        <section class="projects-created">
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
