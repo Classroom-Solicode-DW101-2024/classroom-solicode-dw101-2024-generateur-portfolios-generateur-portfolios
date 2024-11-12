@@ -1,3 +1,4 @@
+// **************** Ta3rif dyal class dial talib ****************
 class Student {
     constructor(name, surname, email, phone, group) {
         this.name = name;
@@ -8,12 +9,13 @@ class Student {
         this.projects = [];
     }
 
-    // Method to add a project to the student's projects array
+    // Method bash nzido projet jdida f liste dyal projets dial talib
     addProject(project) {
         this.projects.push(project);
     }
 }
 
+// **************** Ta3rif dyal class dial projet ****************
 class Project {
     constructor(title, skills, realisationDate, githubLink) {
         this.title = title;
@@ -23,7 +25,7 @@ class Project {
     }
 }
 
-/**************** JS for index.html ****************/
+// **************** Code dyal index.html ****************
 
 let nameInput = document.getElementById('name');
 let surnameInput = document.getElementById('surname');
@@ -32,9 +34,10 @@ let phoneInput = document.getElementById('phone');
 let groupInput = document.getElementById('group');
 let nextBtn = document.getElementById('Next-btn');
 
-// Phone format regex: +212XXX-XX-XX-XX
+// Regex dial format dyal phone: +212XXX-XX-XX-XX
 const phoneFormat = /^\+212\d{3}-\d{2}-\d{2}-\d{2}$/;
 
+// Function bash nkhali formulaire khawi
 function clearForm() {
     nameInput.value = "";
     surnameInput.value = "";
@@ -45,10 +48,12 @@ function clearForm() {
 
 let newStudent;
 
+// Check ila button "Next" kayn, n3mro formulaire o n7to data f localStorage
 if (nextBtn) {
     nextBtn.addEventListener('click', (e) => {
         e.preventDefault();
 
+        // Vérifier wach tous les champs 3mmrin b shi haja wla kaynin spaces floul
         if (nameInput.value === "" || 
             nameInput.value.startsWith(" ") ||
             surnameInput.value === "" || 
@@ -60,33 +65,38 @@ if (nextBtn) {
             return;
         }
 
+        // Na7iw spaces w na7to l email fl format matlob
         let nameValue = nameInput.value.replace(/\s+/g, '');  
         let surnameValue = surnameInput.value.replace(/\s+/g, '');
         let formattedEmail = `${nameValue}.${surnameValue}.solicode@gmail.com`;
 
-        // if (formattedEmail !== emailInput.value) {
-        //     alert('Please respect this format in email: name.surname.solicode@gmail.com');
-        //     return;
-        // }
+        // Check ila format dial email mchi howa
+        if (formattedEmail !== emailInput.value) {
+            alert('Please respect this format in email: name.surname.solicode@gmail.com');
+            return;
+        }
 
+        // Check ila format dial phone howa howa matlob
         if (!phoneFormat.test(phoneInput.value)) {
             alert('Please enter the phone number in this format: +212XXX-XX-XX-XX');
             return;
         }
-    
+
+        // Ncreateo object talib o nkhbiwha f localStorage
         newStudent = new Student(nameInput.value, surnameInput.value, emailInput.value, phoneInput.value, groupInput.value);
     
         localStorage.setItem('newStudent', JSON.stringify(newStudent));
     
         console.log(newStudent);
     
+        // Redirect l projects.html
         window.location.href = "projects.html";
     
-        clearForm();
+        clearForm(); // Nkhalio formulaire khawi
     });
 }
 
-/**************** JS for projects.html ****************/
+// **************** Code dyal projects.html ****************
 
 let projectTitle = document.getElementById("project-title");
 let githubLinks = document.getElementById("github-links");
@@ -95,6 +105,7 @@ let validateBtn = document.getElementById("validate");
 let finishBtn = document.getElementById("finish");
 let projectsCreatedSection = document.querySelector('.projects-created');
 
+// Function bash nkhalio formulaire dyal projects khawi
 function clearFormProject() {
     document.getElementById("projects-forms").reset();
 }
@@ -111,6 +122,7 @@ if (storedStudent) {
 
             const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
 
+            // Check ila ay champ m3mmrsh b shi haja w kayna spaces floul
             if (projectTitle.value.trim() === "" || 
                 projectTitle.value.startsWith(" ") || 
                 githubLinks.value.trim() === "" || 
@@ -121,6 +133,7 @@ if (storedStudent) {
                 return;
             }
 
+            // Function bash njib skills mokhtar mn checkboxes
             function getSelectedSkills() {
                 const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
                 let skills = [];
@@ -132,8 +145,8 @@ if (storedStudent) {
                 return skills;      
             }
 
+            // Na3mro projet jdida w njibha l student
             const newProject = new Project(projectTitle.value, getSelectedSkills(), realisationDate.value, githubLinks.value);
-        
             newStudent.addProject(newProject);
 
             console.log(newProject);
@@ -141,6 +154,7 @@ if (storedStudent) {
     
             localStorage.setItem('newStudent', JSON.stringify(newStudent));
            
+            // Aficher projet f projects section
             projectsCreatedSection.innerHTML += `
                 <div class="project-item">
                     <div>
@@ -211,7 +225,7 @@ if (storedStudent) {
     }
 }
 
-/**************** JS for portfolio.html ****************/
+// **************** Code dyal portfolio.html ****************
 
 if (finishBtn) {
     finishBtn.addEventListener('click', (e) => {
